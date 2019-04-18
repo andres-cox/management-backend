@@ -16,8 +16,14 @@ const resolvers = {
       },
       updateEmployee: async (_, args) => {
         try {
-          let response = await Employee.findOneAndUpdate(args.cinumber, args);
-          console.log(response);
+          let response = await Employee.findOneAndUpdate({cinumber: args.cinumber}, args, {new: true}, (err, doc) => {
+            if (err) {
+                console.log("Something wrong when updating data!");
+            }
+        
+            console.log(doc);
+        });
+          // console.log(args.cinumber);
           return response;
         } catch (e) {
           return e.message;
@@ -26,7 +32,7 @@ const resolvers = {
       deleteEmployee: async (_, id) => {
         try {
           let response = await Employee.findOneAndDelete(id);
-          console.log(response);
+          // console.log(response);
           return response;
         } catch (e) {
           return e.message;
