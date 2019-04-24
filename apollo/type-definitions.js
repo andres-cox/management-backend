@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Employee {
-    id: ID!
+    id: String
     name: String
     lastname: String
     cinumber: String
@@ -31,9 +31,10 @@ const typeDefs = gql`
     ): Employee
 
     updateEmployee(
+      id: String
       name: String
       lastname: String
-      cinumber: String!
+      cinumber: String
       birthdate: String
       address: String
       phone: String

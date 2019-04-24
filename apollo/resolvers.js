@@ -16,14 +16,14 @@ const resolvers = {
       },
       updateEmployee: async (_, args) => {
         try {
-          let response = await Employee.findOneAndUpdate({cinumber: args.cinumber}, args, {new: true}, (err, doc) => {
+          let response = await Employee.findOneAndUpdate({_id: args.id}, args, {new: true}, (err, doc) => {
             if (err) {
                 console.log("Something wrong when updating data!");
             }
-        
-            console.log(doc);
+            // console.log(doc);
         });
-          // console.log(args.cinumber);
+          // console.log(args);
+          // console.log(args.id);
           return response;
         } catch (e) {
           return e.message;
