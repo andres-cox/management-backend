@@ -20,19 +20,15 @@ const resolvers = {
             if (err) {
                 console.log("Something wrong when updating data!");
             }
-            // console.log(doc);
         });
-          // console.log(args);
-          // console.log(args.id);
           return response;
         } catch (e) {
           return e.message;
         }
       },
-      deleteEmployee: async (_, id) => {
+      deleteEmployee: async (_, args) => {
         try {
-          let response = await Employee.findOneAndDelete(id);
-          // console.log(response);
+          let response = await Employee.findByIdAndRemove(args.id);
           return response;
         } catch (e) {
           return e.message;

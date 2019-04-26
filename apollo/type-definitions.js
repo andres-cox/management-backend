@@ -42,7 +42,7 @@ const typeDefs = gql`
       profession: String
     ): Employee
 
-    deleteEmployee(cinumber: String!): Employee
+    deleteEmployee(id: String!): Employee
   }
 `;
 module.exports = {
