@@ -21,8 +21,8 @@ mongoose.connection.once("open", () =>
 app.use(express.static(path.join(__dirname, "public")));
 
 // Apollo Server
-const { typeDefs } = require("./apollo/type-definitions");
-const { resolvers } = require("./apollo/resolvers");
+const { typeDefs } = require("../apollo/type-definitions");
+const { resolvers } = require("../apollo/resolvers");
 
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
