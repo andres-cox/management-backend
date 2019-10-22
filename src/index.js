@@ -30,7 +30,7 @@ server.applyMiddleware({ app });
 
 //Rise Server
 //for deployment
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+server.listen({ port: process.env.PORT || 3000 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);
 });
 //for development
