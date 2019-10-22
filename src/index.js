@@ -19,6 +19,7 @@ mongoose.connection.once("open", () =>
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(__dirname + "public/favicon.ico"));
 
 // Apollo Server
 const { typeDefs } = require("../apollo/type-definitions");
