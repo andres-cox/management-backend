@@ -24,11 +24,11 @@ const { resolvers } = require("../apollo/resolvers");
 
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
-server.applyMiddleware({ app });
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(__dirname + "/public/favicon.ico"));
+server.applyMiddleware({ app });
 //Rise Server
 //for deployment
 server.listen({ port: process.env.PORT || 3000 }).then(({ url }) => {
