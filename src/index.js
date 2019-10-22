@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 //Connecting Database
-//deployment
+//development
 //const url = "mongodb://localhost:27017/employment";
 //docker
 //const url = "mongodb://mongo:27017/employment";
@@ -26,9 +26,14 @@ const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(__dirname + "/public/favicon.ico"));
+app.use(express.static("public"));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "public", "index.html"));
+// });
+// app.use(favicon(__dirname + "/public/favicon.ico"));
 server.applyMiddleware({ app });
+
 //Rise Server
 //for deployment
 server.listen({ port: process.env.PORT || 3000 }).then(({ url }) => {
