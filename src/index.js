@@ -31,7 +31,7 @@ app.use(express.static("public"));
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 // });
-// app.use(favicon(__dirname + "/public/favicon.ico"));
+app.use(favicon(__dirname + "/public/favicon.ico"));
 server.applyMiddleware({ app });
 
 //Rise Server
