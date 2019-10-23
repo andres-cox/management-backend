@@ -31,15 +31,15 @@ app.use(express.static("public"));
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 // });
-app.use(favicon(__dirname + "/public/favicon.ico"));
+// app.use(favicon(__dirname + "/public/favicon.ico"));
 server.applyMiddleware({ app });
 
 //Rise Server
 //for deployment
-server.listen({ port: process.env.PORT || 3000 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
+// server.listen({ port: process.env.PORT || 3000 }).then(({ url }) => {
+//   console.log(`🚀 Server ready at ${url}`);
+// });
 //for development
-// app.listen({ port: 4000 }, () =>
-//   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
-// );
+app.listen({ port: process.env.PORT || 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+);
