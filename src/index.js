@@ -9,10 +9,10 @@ mongoose.Promise = global.Promise;
 //development
 //const url = "mongodb://localhost:27017/employment";
 //docker
-//const url = "mongodb://mongo:27017/employment";
+const url = "mongodb://mongo:27017/employment";
 //deployment
-const url =
-  "mongodb://andres:andrespass@cluster0-shard-00-00-breqi.mongodb.net:27017,cluster0-shard-00-01-breqi.mongodb.net:27017,cluster0-shard-00-02-breqi.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
+// const url =
+//   "mongodb://andres:andrespass@cluster0-shard-00-00-breqi.mongodb.net:27017,cluster0-shard-00-01-breqi.mongodb.net:27017,cluster0-shard-00-02-breqi.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose.connect(url, { useNewUrlParser: true });
 mongoose.connection.once("open", () =>
   console.log(`Connected to mongo at ${url}`)
@@ -22,7 +22,12 @@ mongoose.connection.once("open", () =>
 const { typeDefs } = require("../apollo/type-definitions");
 const { resolvers } = require("../apollo/resolvers");
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  engine: { apiKey: "service:rescox-5108:Nogp1pza21AATJPpMHfyRg" },
+  introspection: true
+});
 const app = express();
 
 // Set Static Folder
